@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skills | MrSolidy</title>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0a1a3a;
+  --orange:#ff7a18;
+  --bg:#f6f8fc;
+  --white:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:var(--bg);color:#1f2937;line-height:1.7;}
+body.dark{background:#0b1224;color:#e5e7eb;}
+
+/* Header */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:var(--navy);
+  z-index:1000;
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+}
+.logo{color:var(--orange);font-size:22px;font-weight:700;}
+nav a{color:#fff;margin:0 10px;text-decoration:none;font-size:14px;transition:.3s;}
+nav a:hover{color:var(--orange);}
+.toggle, .hamburger{color:#fff;cursor:pointer;font-size:22px;}
+.hamburger{display:none;}
+
+/* Mobile nav */
+@media(max-width:768px){
+  nav{
+    position:absolute;
+    top:65px;
+    right:0;
+    background:var(--navy);
+    flex-direction:column;
+    width:220px;
+    display:none;
+    border-radius:0 0 10px 10px;
+  }
+  nav.active{display:flex;}
+  nav a{margin:12px 0;padding:10px 20px;}
+  .hamburger{display:block;}
+}
+
+/* Section */
+section{max-width:1200px;margin:auto;padding:120px 20px 60px;}
+h1{font-size:42px;color:var(--navy);margin-bottom:15px;}
+h2{color:var(--navy);margin-bottom:20px;}
+p{margin-bottom:20px;}
+
+/* Fade animations */
+.fade{opacity:0;transform:translateY(30px);transition:1s ease;}
+.fade.show{opacity:1;transform:translateY(0);}
+
+/* Skills Layout */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:40px;}
+.card{background:#fff;padding:30px;border-radius:22px;box-shadow:0 15px 30px rgba(0,0,0,.1);}
+.card i{font-size:32px;color:var(--orange);margin-bottom:15px;display:block;}
+
+/* Progress Bars */
+.skill{margin-bottom:20px;}
+.skill span{font-size:14px;font-weight:600;}
+.bar{background:#e5e7eb;border-radius:10px;overflow:hidden;margin-top:8px;}
+.bar div{height:12px;width:0;background:linear-gradient(90deg,var(--orange),#ff9a3c);transition:1.5s ease;}
+
+/* Tools */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:20px;margin-top:30px;text-align:center;}
+.tool{background:#fff;padding:20px;border-radius:18px;box-shadow:0 10px 20px rgba(0,0,0,.08);}
+.tool i{font-size:30px;color:var(--orange);margin-bottom:8px;}
+
+/* Footer */
+footer{background:var(--navy);color:#fff;text-align:center;padding:30px;margin-top:40px;}
+
+/* Responsive adjustments */
+@media(max-width:900px){h1{font-size:34px;}}
+@media(max-width:500px){.tools{grid-template-columns:repeat(auto-fit,minmax(100px,1fr));}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">MrSolidy</div>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    <nav id="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="toggle" onclick="document.body.classList.toggle('dark')"><i class="fas fa-moon"></i></div>
+  </div>
+</header>
+
+<section>
+  <h1 class="fade">Technical Skills</h1>
+  <p class="fade">I specialize in building enterprise-level web applications with a strong focus on backend security, performance, and scalable frontend architecture.</p>
+
+  <div class="grid">
+    <!-- Backend -->
+    <div class="card fade">
+      <i class="fas fa-server"></i>
+      <h2>Backend Development</h2>
+      <div class="skill"><span>Spring Boot</span><div class="bar"><div data-width="92%"></div></div></div>
+      <div class="skill"><span>REST APIs</span><div class="bar"><div data-width="90%"></div></div></div>
+      <div class="skill"><span>Security (JWT/Auth)</span><div class="bar"><div data-width="88%"></div></div></div>
+    </div>
+
+    <!-- Frontend -->
+    <div class="card fade">
+      <i class="fas fa-laptop-code"></i>
+      <h2>Frontend Development</h2>
+      <div class="skill"><span>HTML / CSS / JavaScript</span><div class="bar"><div data-width="90%"></div></div></div>
+      <div class="skill"><span>Angular</span><div class="bar"><div data-width="85%"></div></div></div>
+      <div class="skill"><span>React</span><div class="bar"><div data-width="80%"></div></div></div>
+    </div>
+
+    <!-- Database & Cloud -->
+    <div class="card fade">
+      <i class="fas fa-database"></i>
+      <h2>Database & Cloud</h2>
+      <div class="skill"><span>MySQL</span><div class="bar"><div data-width="88%"></div></div></div>
+      <div class="skill"><span>PostgreSQL</span><div class="bar"><div data-width="85%"></div></div></div>
+      <div class="skill"><span>Cloud Deployment</span><div class="bar"><div data-width="80%"></div></div></div>
+    </div>
+  </div>
+
+  <h2 class="fade" style="margin-top:70px">Tools & Technologies</h2>
+  <div class="tools fade">
+    <div class="tool"><i class="fab fa-java"></i><p>Java</p></div>
+    <div class="tool"><i class="fas fa-leaf"></i><p>Spring</p></div>
+    <div class="tool"><i class="fab fa-angular"></i><p>Angular</p></div>
+    <div class="tool"><i class="fab fa-react"></i><p>React</p></div>
+    <div class="tool"><i class="fas fa-database"></i><p>SQL</p></div>
+    <div class="tool"><i class="fas fa-cloud"></i><p>Cloud</p></div>
+  </div>
+</section>
+
+<footer>
+  © 2025 MrSolidy | Enterprise Web Application Developer
+</footer>
+
+<script>
+  // Intersection Observer for fade-in & skill bar animation
+  const fades = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        entry.target.querySelectorAll('.bar div').forEach(bar=>{
+          bar.style.width = bar.dataset.width;
+        });
+      }
+    });
+  },{threshold:0.2});
+  fades.forEach(f => observer.observe(f));
+
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+</script>
+
+</body>
+</html>

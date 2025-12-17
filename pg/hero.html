@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="hero">
+  <div class="hero-content">
+    <h1>Hi, I'm <span>MrSolidy</span></h1>
+    <p>Professional <strong>Full Stack Developer</strong> delivering secure, scalable, and interactive web applications. Specializing in Spring Boot, React, Angular, and cloud deployment.</p>
+    <div class="hero-buttons">
+      <a href="contact.html" class="btn">Hire Me</a>
+      <a href="cv.pdf" class="btn">Download CV</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="../img/hr.png" alt="Full Stack Developer Cartoon" class="interactive-img">
+  </div>
+</section>
+
+<style>
+  .hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+    padding:120px 20px;
+    max-width:1200px;
+    margin:auto;
+  }
+
+  .hero h1{font-size:50px; color:#0a1a3a; transition:0.5s;}
+  .hero h1 span{color:#ff7a18;}
+
+  .hero p{margin-top:20px; font-size:18px; color:#1f2937; line-height:1.6;}
+
+  .hero-buttons{margin-top:30px;}
+  .hero-buttons .btn{
+    display:inline-block;
+    margin-right:20px;
+    padding:12px 26px;
+    background:#ff7a18;
+    color:#fff;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+  }
+  .hero-buttons .btn:hover{
+    background:#ff9a3c;
+    transform:translateY(-3px);
+  }
+
+  .hero-image img{
+    width:100%;
+    height: 70vh;
+    max-width:500px;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+    transition:0.5s;
+  }
+
+  /* Hover animation */
+  .interactive-img:hover{
+    transform: rotate(-5deg) scale(1.05);
+  }
+
+  /* Fade-in animation */
+  .hero h1, .hero p, .hero-buttons, .hero-image img{
+    opacity:0;
+    transform: translateY(30px);
+    animation:fadeInUp 1s forwards;
+  }
+  .hero h1{animation-delay:0.2s;}
+  .hero p{animation-delay:0.4s;}
+  .hero-buttons{animation-delay:0.6s;}
+  .hero-image img{animation-delay:0.8s;}
+
+  @keyframes fadeInUp{
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  /* Responsive */
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;}
+    .hero-image{margin-top:30px; text-align:center;}
+    .hero-image img{
+        height: 35vh;
+    }
+    .hero h1{font-size:36px;}
+  }
+</style>
+
+<script>
+  // Optional: dynamic floating effect
+  const img = document.querySelector('.interactive-img');
+  let offset = 0;
+  function floatImage(){
+    offset += 0.5;
+    img.style.transform = `translateY(${Math.sin(offset/10)*10}px) rotate(${Math.sin(offset/20)*5}deg)`;
+    requestAnimationFrame(floatImage);
+  }
+  floatImage();
+</script>
+
+</body>
+</html>

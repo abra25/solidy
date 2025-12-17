@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | MrSolidy</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    :root {
+      --navy: #0a1a3a;
+      --orange: #ff7a18;
+      --bg: #f6f8fc;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{background:var(--bg);color:#1f2937;line-height:1.7;}
+    
+    /* Header & Navbar */
+    header{position:fixed;top:0;width:100%;background:var(--navy);z-index:1000;}
+    .nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:15px;}
+    .logo{color:var(--orange);font-weight:700;font-size:22px;}
+    nav{display:flex;gap:15px;}
+    nav a{color:#fff;text-decoration:none;font-size:14px;}
+    nav a:hover{color:var(--orange);}
+    .toggle, .hamburger{color:#fff;cursor:pointer;font-size:18px;display:none;}
+    nav.active{display:flex;flex-direction:column;background:var(--navy);position:absolute;top:60px;right:15px;padding:20px;border-radius:10px;}
+    nav.active a{margin:10px 0;}
+
+    /* Hero Section */
+    section{max-width:1200px;margin:auto;padding:120px 20px;}
+    h1{font-size:42px;color:var(--navy);} h2{color:var(--navy);}    
+
+    /* Fade animation */
+    .fade{opacity:0;transform:translateY(30px);transition:1s ease;}
+    .fade.show{opacity:1;transform:translateY(0);}    
+
+    /* Layout */
+    .layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:50px;}
+
+    /* Contact cards */
+    .info-card{background:#fff;border-radius:25px;padding:30px;box-shadow:0 15px 35px rgba(0,0,0,.12);margin-bottom:25px;}    
+    .info-card i{font-size:26px;color:var(--orange);margin-right:10px;}    
+
+    /* Form */
+    form{background:#fff;border-radius:30px;padding:40px;box-shadow:0 20px 45px rgba(0,0,0,.15);}    
+    form input,form textarea{width:100%;padding:14px;margin-bottom:18px;border-radius:10px;border:1px solid #ddd;font-size:14px;}    
+    form button{width:100%;padding:14px;background:var(--navy);color:#fff;border:none;border-radius:12px;font-size:16px;cursor:pointer;}    
+    form button:hover{background:var(--orange);}    
+
+    /* Social */
+    .social a{display:inline-block;margin:10px;font-size:22px;color:var(--navy);}    
+    .social a:hover{color:var(--orange);}    
+
+    footer{background:var(--navy);color:#fff;text-align:center;padding:30px;}    
+
+    /* SweetAlert2 */
+    .swal2-popup{border-radius:16px;font-family:'Poppins',sans-serif;}
+    .swal2-title{color:#0a1a3a;}
+    .swal2-confirm{font-weight:600;}
+
+    /* Shake animation */
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-5px); }
+      40% { transform: translateX(5px); }
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+      100% { transform: translateX(0); }
+    }
+    .shake { animation: shake 0.5s; border:2px solid #ff4d4f; }
+    .valid-field { border:2px solid #4caf50; transition:border 0.3s; }
+
+    /* Responsive */
+    @media(max-width:900px){.layout{grid-template-columns:1fr;}}
+    @media(max-width:768px){
+      h1{font-size:34px;}
+      form{padding:30px;}
+      .hamburger, .toggle{display:block;}
+      nav{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">MrSolidy</div>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    <nav id="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="toggle" onclick="document.body.classList.toggle('dark')"><i class="fas fa-moon"></i></div>
+  </div>
+</header>
+
+<section>
+  <h1 class="fade">Contact Me</h1>
+  <p class="fade">Let’s discuss your project. I’m available for freelance work, long-term collaboration, and enterprise solutions.</p>
+
+  <div class="layout">
+    <!-- Info -->
+    <div>
+      <div class="info-card fade"><i class="fas fa-user"></i> <strong>Name:</strong> MrSolidy</div>
+      <div class="info-card fade"><i class="fas fa-briefcase"></i> <strong>Title:</strong> Enterprise Web Application Developer</div>
+      <div class="info-card fade"><i class="fas fa-phone"></i> <strong>Phone / WhatsApp:</strong> +255 777 617 786</div>
+      <div class="info-card fade"><i class="fas fa-location-dot"></i> <strong>Address:</strong> Bububu, Zanzibar, Tanzania</div>
+
+      <div class="info-card fade">
+        <h2>Connect with Me</h2>
+        <div class="social">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/255777617786" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form class="fade" onsubmit="sendMessage(event)">
+      <h2>Send a Message</h2>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="text" placeholder="Subject" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2025 MrSolidy | Enterprise Web Application Developer
+</footer>
+
+<script>
+  // Fade animation
+  const fades=document.querySelectorAll('.fade');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show');});
+  },{threshold:0.2});
+  fades.forEach(f=>observer.observe(f));
+
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Example sendMessage function (replace with your fetch/API)
+  function sendMessage(e){
+    e.preventDefault();
+    Swal.fire({
+      icon: 'success',
+      title: 'Message Sent!',
+      text: 'Thank you for reaching out. I will contact you soon.',
+      confirmButtonColor: '#ff7a18'
+    });
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>

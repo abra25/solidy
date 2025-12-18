@@ -10,25 +10,38 @@
   <meta name="keywords" content="Full Stack Developer, Spring Boot, React, Angular, Zanzibar Developer" />
 
   <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
-    :root {
+  :root {
       --navy: #0a1a3a;
       --orange: #ff7a18;
       --bg: #f6f8fc;
       --white: #ffffff;
+      --soft: #fff2e8;
     }
-    body.dark {
-      --bg: #0b1224;
-      color: #e5e7eb;
+  body.dark{
+  --bg:#0b1224;
+  --card:#101a35;
+  color:#e5e7eb;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-    body { background:var(--bg); color:#1f2937; line-height:1.7; scroll-behavior: smooth;}
+    body {
+      background: var(--bg);
+      color: #1f2937;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
 
-    /* Header */
+    /* ================= HEADER ================= */
     header {
       position: fixed;
       top: 0;
@@ -47,40 +60,214 @@
       padding: 15px 20px;
     }
 
-    .logo { color: var(--orange); font-size: 22px; font-weight:700; }
-    nav a {
-      color:#fff;
-      margin: 0 12px;
-      text-decoration:none;
-      font-size: 14px;
-      transition: color 0.3s;
+    .logo {
+      color: var(--orange);
+      font-size: 22px;
+      font-weight: 700;
     }
+
+    nav a {
+      color: #fff;
+      margin: 0 12px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
     nav a:hover { color: var(--orange); }
 
-    .toggle, .hamburger { color: #fff; cursor: pointer; font-size: 22px; }
+    .toggle, .hamburger {
+      color: #fff;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
     .hamburger { display: none; }
 
-    /* Hero */
-    section.hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-      padding: 150px 40px 80px 40px;
-    }
-    section.hero span { color: var(--orange); }
-    section.hero p { margin-top: 15px; font-size: 16px; line-height: 1.6; }
-    .hero-icons i { font-size: 40px; color: var(--orange); margin-right: 15px; margin-top: 20px; }
-    .btn { display: inline-block; margin-top: 25px; padding: 12px 26px; background: var(--orange); color: #fff; border-radius: 10px; text-decoration: none; transition: transform 0.3s; }
-    .btn:hover { transform: translateY(-3px); }
+    /* PARTICLES */
+.particles{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+}
+.particle{
+  position:absolute;
+  width:6px;height:6px;
+  background:rgba(255,122,24,0.35);
+  border-radius:50%;
+  animation:float 20s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
 
-    /* Highlights */
+
+    /* ================= HERO ================= */
+    .hero {
+      padding: 150px 6% 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+
+    .hero-left {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,122,24,0.15);
+      color: var(--orange);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero p {
+      margin-top: 15px;
+      color: #4b5563;
+      font-size: 16px;
+    }
+
+    .hero-actions {
+      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 26px;
+      background: var(--orange);
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn.secondary {
+      background: var(--navy);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .hero-stats {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 20px;
+    }
+
+    .stat h3 {
+      color: var(--orange);
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .stat p {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    /* -------- RIGHT CARD -------- */
+    .hero-right {
+      flex: 1;
+      position: relative;
+      max-width: 480px;
+    }
+
+    .available {
+      position: absolute;
+      top: -18px;
+      right: 25px;
+      background: var(--orange);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      animation: float 2.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .skills-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+    }
+
+    .skill {
+      background: var(--soft);
+      padding: 14px 18px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateX(8px);
+    }
+
+    .skill i {
+      color: var(--orange);
+    }
+      /* ===== SCROLL ANIMATIONS ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
+
+
+    /* ================= OTHER SECTIONS ================= */
+    section {
+      padding: 80px 6%;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
     .highlights {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
       gap: 25px;
-      margin-top: 50px;
     }
+
     .box {
       background: #fff;
       padding: 25px;
@@ -89,50 +276,72 @@
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .box i { font-size: 30px; color: var(--orange); margin-bottom: 15px; }
-    .box:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,.2); }
 
-    /* CTA */
+    .box i {
+      font-size: 30px;
+      color: var(--orange);
+      margin-bottom: 15px;
+    }
+
+    .box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 40px rgba(0,0,0,.2);
+    }
+
     .cta {
       background: linear-gradient(135deg,var(--navy),var(--orange));
       color: #fff;
       padding: 70px 20px;
       border-radius: 25px;
       text-align: center;
-      margin: 80px 20px;
+      margin: 80px 6%;
     }
 
-    /* Footer */
-    footer { background: var(--navy); color: #fff; text-align: center; padding: 40px 20px; margin-top: 50px; }
+    footer {
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
 
-
-    @media(max-width: 768px) {
-      .hero {grid-template-columns:1fr;text-align: center; }
-      .hero img { margin-top: 20px; }
-      nav { 
-        position: absolute; top: 70px; right: 0; background: var(--navy); 
-        flex-direction: column; width: 200px; display: none; border-radius: 0 0 10px 10px;
+    /* ================= RESPONSIVE ================= */
+    @media(max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
       }
-      nav.active { display: flex; }
-      nav a { margin: 12px 0; padding: 10px 20px; }
-      .hamburger { display: block; }
-      section.hero p { font-size: 14px; }
-      h1 { font-size: 28px; }
-      h2 { font-size: 28px; margin-top: 40px; }
-      .highlights { grid-template-columns: 1fr; }
-      .btn { padding: 10px 20px; font-size: 14px; }
-      .cta { padding: 50px 20px; margin: 50px 20px; }
-    }
-    /* Responsive */
-  @media(max-width:768px){
-    .hero{grid-template-columns:1fr;}
-    .hero-image{margin-top:30px; text-align:center;}
-    .hero-image img{
-        height: 35vh;
-    }
-    .hero h1{font-size:36px;}
-  }
 
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .available {
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: var(--navy);
+        flex-direction: column;
+        width: 200px;
+        display: none;
+      }
+
+      nav.active { display: flex; }
+
+      nav a {
+        padding: 12px 20px;
+      }
+
+      .hamburger { display: block; }
+    }
   </style>
 </head>
 <body>
@@ -148,38 +357,61 @@
       <a href="pg/services.html">Services</a>
       <a href="pg/contact.html">Contact</a>
     </nav>
-    <div class="toggle" onclick="document.body.classList.toggle('dark')"><i class="fas fa-moon"></i></div>
+    <div class="toggle" onclick="document.body.classList.toggle('dark')">
+      <i class="fas fa-moon"></i>
+    </div>
   </div>
 </header>
 
- <section class="hero">
-  <div class="hero-content">
+<!-- ================= NEW HERO ================= -->
+<section class="hero">
+  <div class="particles" id="particles"></div>
+  <div class="hero-left">
+    <span class="hero-badge">Full Stack Developer</span>
     <h1>Hi, I'm <span>MrSolidy</span></h1>
-    <p>Professional <strong>Full Stack Developer</strong> delivering secure, scalable, and interactive web applications. Specializing in Spring Boot, React, Angular, and cloud deployment.</p>
-    <div class="hero-buttons">
+    <p>
+      I craft secure, scalable and interactive web applications using
+      Spring Boot, React, Angular and modern cloud technologies.
+    </p>
+
+    <div class="hero-actions">
       <a href="pg/contact.html" class="btn">Hire Me</a>
-      <a href="fl/cv.pdf" class="btn">Download CV</a>
+      <a href="fl/cv.pdf" class="btn secondary">Download CV</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><h3>2+</h3><p>Years Experience</p></div>
+      <div class="stat"><h3>12+</h3><p>Projects</p></div>
+      <div class="stat"><h3>10+</h3><p>Clients</p></div>
+      <div class="stat"><h3>15+</h3><p>Technologies</p></div>
     </div>
   </div>
 
-  <div class="hero-image">
-    <img src="img/hr.png" alt="Full Stack Developer Cartoon" class="interactive-img" width="50%">
+  <div class="hero-right">
+    <span class="available">Available for Hire</span>
+    <div class="skills-card">
+      <div class="skill"><i class="fas fa-check"></i> Spring Boot Expert</div>
+      <div class="skill"><i class="fas fa-check"></i> React & Angular Pro</div>
+      <div class="skill"><i class="fas fa-check"></i> Cloud & Security</div>
+      <div class="skill"><i class="fas fa-check"></i> UI / UX Design</div>
+    </div>
   </div>
 </section>
 
+<!-- ================= REST OF PAGE ================= -->
 <section>
   <h2>What I Deliver</h2>
   <div class="highlights">
-    <div class="box"><i class="fas fa-shield-halved"></i><h3>Secure Backend Systems</h3><p>Spring Boot APIs with JWT, role-based security, and enterprise-grade architecture.</p></div>
-    <div class="box"><i class="fas fa-laptop-code"></i><h3>Modern Frontend</h3><p>Responsive, interactive UI using HTML, CSS, JavaScript, React, Angular & TypeScript.</p></div>
-    <div class="box"><i class="fas fa-database"></i><h3>Database Expertise</h3><p>Optimized MySQL & PostgreSQL schemas ensuring performance and data integrity.</p></div>
-    <div class="box"><i class="fas fa-cloud-arrow-up"></i><h3>Cloud Deployment</h3><p>Deployments on AWS, DigitalOcean with HTTPS, monitoring & scalability.</p></div>
+    <div class="box"><i class="fas fa-shield-halved"></i><h3>Secure Backend</h3><p>Spring Boot APIs with JWT & role-based security.</p></div>
+    <div class="box"><i class="fas fa-laptop-code"></i><h3>Modern Frontend</h3><p>Responsive UI with React, Angular & TypeScript.</p></div>
+    <div class="box"><i class="fas fa-database"></i><h3>Databases</h3><p>Optimized MySQL & PostgreSQL schemas.</p></div>
+    <div class="box"><i class="fas fa-cloud-arrow-up"></i><h3>Cloud</h3><p>AWS & DigitalOcean deployments.</p></div>
   </div>
 </section>
 
 <section class="cta">
   <h2>Ready to Build Something Powerful?</h2>
-  <p>Let's work together to create a secure, scalable, and professional web solution.</p>
+  <p>Let’s work together to create secure & scalable solutions.</p>
   <a href="pg/contact.html" class="btn">Start a Project</a>
 </section>
 
@@ -188,7 +420,6 @@
 </footer>
 <script src="cri/scrp.js"></script>
 <script>
-  // Navbar toggle
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
 

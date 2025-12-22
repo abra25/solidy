@@ -14,34 +14,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
-  :root {
-      --navy: #0a1a3a;
-      --orange: #ff7a18;
-      --bg: #f6f8fc;
-      --white: #ffffff;
-      --soft: #fff2e8;
-    }
-  body.dark{
-  --bg:#0b1224;
-  --card:#101a35;
-  color:#e5e7eb;
-}
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: var(--bg);
-      color: #1f2937;
-      line-height: 1.7;
-      scroll-behavior: smooth;
-    }
-
-    /* ================= HEADER ================= */
+    /* global style */:root {--navy: #0a1a3a;--orange: #ff7a18;--bg: #f6f8fc;--white: #ffffff;--soft: #fff2e8;}body.dark{--bg:#0b1224;--card:#101a35;color:#e5e7eb;}
+    * {margin: 0;padding: 0;box-sizing: border-box;font-family: 'Poppins', sans-serif;}body{background: var(--bg);color: #1f2937;line-height: 1.7;scroll-behavior: smooth;}
+  /* ================= HEADER ================= */
     header {
       position: fixed;
       top: 0;
@@ -149,7 +124,6 @@
       gap: 15px;
       flex-wrap: wrap;
     }
-
     .btn {
       padding: 12px 26px;
       background: var(--orange);
@@ -157,6 +131,7 @@
       border-radius: 10px;
       text-decoration: none;
       font-size: 14px;
+      cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
@@ -375,8 +350,8 @@
     </p>
 
     <div class="hero-actions">
-      <a href="pg/contact.html" class="btn">Hire Me</a>
-      <a href="fl/cv.pdf" class="btn secondary">Download CV</a>
+      <a href="pg/contact.html" class="btn">Get In Touch</a>
+      <a href="pg/projects.html" class="btn secondary">View My Works</a>
     </div>
 
     <div class="hero-stats">

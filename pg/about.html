@@ -5,78 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>About | MrSolidy</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- min css -->
+  <link rel="stylesheet" href="../stl/style.css">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-:root{
-  --navy:#0a1a3a;
-  --orange:#ff7a18;
-  --bg:#f6f8fc;
-  --white:#ffffff;
-}
-
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--bg);
-  color:#1f2937;
-  line-height:1.7;
-}
-body.dark{
-  background:#0b1224;
-  color:#e5e7eb;
-}
-
-/* Header */
-header{
-  background:var(--navy);
-  padding:15px 20px;
-  position:fixed;
-  width:100%;
-  top:0;
-  z-index:1000;
-}
-.nav{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{
-  color:var(--orange);
-  font-size:22px;
-  font-weight:700;
-}
-nav a{
-  color:#fff;
-  margin:0 10px;
-  text-decoration:none;
-  font-size:14px;
-  transition: color 0.3s;
-}
-nav a:hover{ color:var(--orange); }
-.toggle, .hamburger{ color:#fff; cursor:pointer; font-size:22px; }
-.hamburger{ display:none; }
-
-/* Mobile nav */
-@media(max-width:768px){
-  nav{
-    position:absolute;
-    top:65px;
-    right:0;
-    background:var(--navy);
-    flex-direction:column;
-    width:200px;
-    display:none;
-    border-radius:0 0 10px 10px;
-  }
-  nav.active{ display:flex; }
-  nav a{ margin:12px 0; padding:10px 20px; }
-  .hamburger{ display:block; }
-}
-
 /* Section */
 section{
   max-width:1100px;
@@ -102,9 +38,9 @@ h2{ color:var(--navy); margin-bottom:15px; }
 .box{ background:#fff; padding:30px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,.1); }
 .value i{ font-size:30px; color:var(--orange); margin-bottom:10px; display:block; }
 
-/* Footer */
-footer{ background:var(--navy); color:#fff; text-align:center; padding:30px; margin-top:40px; }
-
+/* Fade animations */
+.fade{opacity:0;transform:translateY(30px);transition:1s ease;}
+.fade.show{opacity:1;transform:translateY(0);}
 /* Responsive adjustments */
 @media(max-width:900px){
   h1{ font-size:32px; }
@@ -113,30 +49,46 @@ footer{ background:var(--navy); color:#fff; text-align:center; padding:30px; mar
 </style>
 </head>
 <body>
-
 <header>
   <div class="nav">
     <div class="logo">MrSolidy</div>
-    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- Nav Links -->
     <nav id="nav-links">
-      <a href="../index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../pg/about.html" class="nav-link active">About</a>
+      <a href="../pg/skills.html" class="nav-link">Skills</a>
+      <a href="../pg/projects.html" class="nav-link">Projects</a>
+      <a href="../pg/services.html" class="nav-link">Services</a>
+      <a href="../pg/contact.html" class="nav-link">Contact</a>
+      <!-- Theme Dropdown -->
+    <div class="theme-switch">
+      <i class="fas fa-adjust"></i>
+      <div class="theme-menu">
+        <button data-theme="light">
+          <i class="fas fa-sun"></i> Light
+        </button>
+        <button data-theme="dark">
+          <i class="fas fa-moon"></i> Dark
+        </button>
+      </div>
+    </div>
     </nav>
-    <div class="toggle" onclick="document.body.classList.toggle('dark')"><i class="fas fa-moon"></i></div>
   </div>
 </header>
 
 <section>
-  <h1>About Me</h1>
-  <p>
+  <h1 class="fade">About Me</h1>
+  <p class="fade">
     I am <strong>MrSolidy</strong>, an <strong>Enterprise Web Application Developer</strong> with over <strong>2 years of professional experience</strong>. I focus on secure, scalable, and high-performance web applications, delivering business value with clean, interactive UIs.
   </p>
 
-  <div class="timeline">
+  <div class="timeline fade">
     <div class="box">
       <h2>My Journey</h2>
       <p>
@@ -151,7 +103,7 @@ footer{ background:var(--navy); color:#fff; text-align:center; padding:30px; mar
     </div>
   </div>
 
-  <h2 style="margin-top:60px">Core Values</h2>
+  <h2 style="margin-top:60px" class="fade">Core Values</h2>
   <div class="values">
     <div class="box value"><i class="fas fa-award"></i><h3>Quality</h3><p>Clean code, best practices, and maintainable solutions.</p></div>
     <div class="box value"><i class="fas fa-shield-halved"></i><h3>Security</h3><p>Secure APIs, authentication, authorization, and data protection.</p></div>
@@ -159,24 +111,73 @@ footer{ background:var(--navy); color:#fff; text-align:center; padding:30px; mar
     <div class="box value"><i class="fas fa-comments"></i><h3>Communication</h3><p>Clear, friendly, and consistent communication with clients.</p></div>
   </div>
 
-  <h2 style="margin-top:60px">Why I’m Different</h2>
-  <p>
+  <h2 style="margin-top:60px" class="fade">Why I’m Different</h2>
+  <p class="fade">
     Focus on friendly cost, strong security, on-time delivery, and continuous improvement based on client feedback.
   </p>
 </section>
 
-<footer>
-  © 2025 MrSolidy | Enterprise Web Application Developer
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer reveal-footer">
+  <div class="footer-container">
+    <!-- Brand -->
+    <div class="footer-col">
+      <h3 class="footer-logo">MrSolidy</h3>
+      <p class="footer-text">
+        Full Stack Developer specializing in building exceptional digital experiences.
+      </p>
+    </div>
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Connect -->
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <p>Bububu, Zanzibar, Tanzania</p>
+      <p>+255 777 617 786</p>
+
+      <div class="social-icons">
+         <a href="#" aria-label="LinkedIn" class="auto-pulse"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub" class="auto-pulse"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Instagram" class="auto-pulse"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+255777617786" class="auto-pulse" aria-label="Phone"><i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © <span id="year"></span> MrSolidy. All rights reserved.
+  </div>
 </footer>
 
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/255777617786"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 <script>
-  // Mobile nav toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
+  // Intersection Observer for fade-in & skill bar animation
+  const fades = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        entry.target.querySelectorAll('.bar div').forEach(bar=>{
+          bar.style.width = bar.dataset.width;
+        });
+      }
+    });
+  },{threshold:0.2});
+  fades.forEach(f => observer.observe(f));
 </script>
+<script src="../cri/main.js"></script>
 </body>
 </html>

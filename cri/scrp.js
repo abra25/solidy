@@ -1,9 +1,7 @@
-// Optional: dynamic floating effect
-  const img = document.querySelector('.interactive-img');
-  let offset = 0;
-  function floatImage(){
-    offset += 0.5;
-    img.style.transform = `translateY(${Math.sin(offset/10)*10}px) rotate(${Math.sin(offset/20)*5}deg)`;
-    requestAnimationFrame(floatImage);
-  }
-  floatImage();
+
+ // Intersection Observer for fade-in 
+  const fades=document.querySelectorAll('.fade');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show');});
+},{threshold:0.2});
+fades.forEach(f=>observer.observe(f));

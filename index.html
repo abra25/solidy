@@ -323,13 +323,15 @@
     </div>
 
     <div class="hero-stats">
-      <div class="stat"><h3>2+</h3><p>Years Experience</p></div>
+      <div class="stat">
+        <h3><span id="experienceYears"></span>+</h3>
+        <p>Years Experience</p>
+      </div>
       <div class="stat"><h3>12+</h3><p>Projects</p></div>
-      <div class="stat"><h3>10+</h3><p>Clients</p></div>
-      <div class="stat"><h3>15+</h3><p>Technologies</p></div>
+        <div class="stat"><h3>10+</h3><p>Clients</p></div>
+        <div class="stat"><h3>15+</h3><p>Technologies</p></div>
+      </div>
     </div>
-  </div>
-
   <div class="hero-right  fade">
     <span class="available">Available for Hire</span>
     <div class="skills-card">
@@ -563,6 +565,18 @@
   };
   window.addEventListener("scroll", revealOnScroll);
   revealOnScroll();
+  // Year experiencve auto update
+const startDate = new Date("2023-08-12"); 
+const now = new Date();
+let experience = now.getFullYear() - startDate.getFullYear();
+if (
+  now.getMonth() < startDate.getMonth() ||
+  (now.getMonth() === startDate.getMonth() && now.getDate() < startDate.getDate())
+) {
+  experience--;
+}
+document.getElementById("experienceYears").textContent =
+  experience > 0 ? experience : 1;
 </script>
 <script src="cri/scrp.js"></script>
 <script src="cri/main.js"></script>

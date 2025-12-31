@@ -1,29 +1,23 @@
 // Add simple shake animation for invalid inputs
-function shakeField(field) {
-    field.classList.add('shake');
+function shakeField(field) {field.classList.add('shake');
     setTimeout(() => field.classList.remove('shake'), 500);
 }
-
 // Simple email format check
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
-
 // send message with validation
 function sendMessage(e) {
     e.preventDefault();
     const form = e.target;
-
     const fields = {
         name: form[0],
         email: form[1],
         subject: form[2],
         message: form[3]
     };
-
     // Validation
     let valid = true;
-
     Object.values(fields).forEach(field => {
         if (!field.value.trim()) {
             shakeField(field);
@@ -33,13 +27,11 @@ function sendMessage(e) {
             setTimeout(() => field.classList.remove('valid-field'), 1000);
         }
     });
-
     // Email format check
     if (!isValidEmail(fields.email.value)) {
         shakeField(fields.email);
         valid = false;
     }
-
     if (!valid) {
         Swal.fire({
             icon: 'warning',
@@ -49,11 +41,9 @@ function sendMessage(e) {
         });
         return;
     }
-
     // Call your existing sendMessage logic here if valid
     sendEmail(fields, form);
 }
-
 // Separate function to send the email (your SweetAlert code)
 function sendEmail(fields, form) {
     const data = {
@@ -62,7 +52,6 @@ function sendEmail(fields, form) {
         subject: fields.subject.value,
         message: fields.message.value
     };
-
     Swal.fire({
         title: 'Sending your message...',
         html: 'Please wait <b></b>',
@@ -79,7 +68,6 @@ function sendEmail(fields, form) {
             Swal.stopTimer = () => clearInterval(interval);
         }
     });
-
     fetch('http://localhost:8080/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

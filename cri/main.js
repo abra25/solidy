@@ -38,3 +38,32 @@
 
   document.querySelectorAll(".reveal-footer")
     .forEach(el => footerObserver.observe(el));
+  /* Back to top button with progress */
+const backToTop = document.getElementById("backToTop");
+  const progress = backToTop.querySelector(".progress");
+
+  const circumference = 100;
+  progress.style.strokeDasharray = circumference;
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = scrollTop / docHeight;
+
+    const offset = circumference - scrollPercent * circumference;
+    progress.style.strokeDashoffset = offset;
+
+    // show / hide button
+    if (scrollTop > 300) {
+      backToTop.classList.add("show");
+    } else {
+      backToTop.classList.remove("show");
+    }
+  });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });

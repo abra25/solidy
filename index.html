@@ -16,6 +16,7 @@
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
 /* PARTICLES */
@@ -273,7 +274,6 @@
   </style>
 </head>
 <body>
-
 <header>
   <div class="nav">
     <div class="logo">MrSolidy</div>
@@ -306,8 +306,6 @@
     </nav>
   </div>
 </header>
-
-
 <!-- ================= NEW HERO ================= -->
 <section class="hero">
   <div class="particles" id="particles"></div>
@@ -342,10 +340,9 @@
     </div>
   </div>
 </section>
-
 <!-- ================= REST OF PAGE ================= -->
 <section>
-  <h2 class=" fade">What I Deliver</h2>
+  <h2 class=" fade u-underline reveal">What I Deliver</h2>
   <div class="highlights fade">
     <div class="box"><i class="fas fa-shield-halved"></i><h3>Secure Backend</h3><p>Spring Boot APIs with JWT & role-based security.</p></div>
     <div class="box"><i class="fas fa-laptop-code"></i><h3>Modern Frontend</h3><p>Responsive UI with React, Angular & TypeScript.</p></div>
@@ -353,7 +350,56 @@
     <div class="box"><i class="fas fa-cloud-arrow-up"></i><h3>Cloud</h3><p>AWS & DigitalOcean deployments.</p></div>
   </div>
 </section>
+<!-- ================= WHY WORK WITH ME ================= -->
+<section class="why-section reveal">
+  <div class="why-container">
+    <h2 class="why-title">
+      Why Work With Me
+      <span class="title-underline"></span>
+    </h2>
 
+    <p class="why-subtitle">
+      Professional excellence meets reliable delivery
+    </p>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <h3>Fast Delivery</h3>
+        <p>Quick turnaround times without compromising quality</p>
+      </div>
+
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3>Secure & Reliable</h3>
+        <p>Industry-standard security practices implemented</p>
+      </div>
+
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <h3>Client-Focused</h3>
+        <p>Clear communication throughout the project lifecycle</p>
+      </div>
+
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+        </div>
+        <h3>Scalable Solutions</h3>
+        <p>Built to grow with your business needs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= CALL TO ACTION ================= -->
 <section class="cta fade">
   <h2>Ready to Build Something Powerful?</h2>
   <p >Let's collaborate to turn your ideas into reality. I'm available for new <br> and always excited to work on challenging problems.</p>
@@ -361,6 +407,92 @@
   <div class="actions">
     <a href="pg/contact.html" class="btn">Start a Project &#8594;</a>
     <a href="pg/about.html" class="btn secondary">Learn More About Me</a>
+  </div>
+</section>
+
+<!-- ================= TEAM SECTION ================= -->
+<section class="team-section">
+  <h2 class="team-title reveal u-underline">Meet My Team</h2>
+  <p class="team-subtitle">
+    A group of passionate developers and designers I collaborate with to build high-quality digital products.
+  </p>
+
+  <div class="team-slider-wrapper">
+    <button class="slide-btn prev" aria-label="Previous">&#10094;</button>
+
+    <div class="team-slider" id="teamSlider">
+      
+      <!-- Card 1 -->
+      <div class="team-card">
+        <div class="avatar-border">
+          <img src="img/myt1.png" alt="Backend Developer">
+        </div>
+        <h3>Ali Hassan</h3>
+        <span>Backend Developer</span>
+        <p>Spring Boot expert focused on secure APIs and scalable enterprise systems.</p>
+
+        <div class="team-socials">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="team-card">
+        <div class="avatar-border">
+          <img src="img/myt2.jpg" alt="Frontend Developer">
+        </div>
+        <h3>kobo Mmanga</h3>
+        <span>Frontend Developer</span>
+        <p>Creates modern, responsive UI using Angular and animation-driven UX.</p>
+
+        <div class="team-socials">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="team-card">
+        <div class="avatar-border">
+          <img src="img/abrayo.PNG" alt="UI UX Designer">
+        </div>
+        <h3>Abrayo hd</h3>
+        <span>UI / UX Designer</span>
+        <p>Designs clean interfaces with strong usability and brand-driven. Graphic design enthusiast.</p>
+
+        <div class="team-socials">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="team-card">
+        <div class="avatar-border">
+          <img src="img/ninja.PNG" alt="Frontend Developer">
+        </div>
+        <h3>Abdillah Ninja</h3>
+        <span>Full Stack Developer</span>
+        <p>Creates modern, responsive UI using React, Angular, django and spring boot.</p>
+
+        <div class="team-socials">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="slide-btn next" aria-label="Next">&#10095;</button>
   </div>
 </section>
 
@@ -394,7 +526,7 @@
         <a href="#" aria-label="LinkedIn" class="auto-pulse"><i class="fab fa-linkedin-in"></i></a>
         <a href="#" aria-label="GitHub" class="auto-pulse"><i class="fab fa-github"></i></a>
         <a href="#" aria-label="Instagram" class="auto-pulse"><i class="fab fa-instagram"></i></a>
-        <a href="tel:+255777617786" class="auto-pulse" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        <a href="tel:+255777617786" class="auto-pulse"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </div>
@@ -403,7 +535,35 @@
   </div>
 </footer>
 
+<!-- Back To Top Button -->
+<button id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 36 36">
+    <!-- Progress Circle -->
+    <path
+      class="progress"
+      d="M18 2
+         a 16 16 0 1 1 0 32
+         a 16 16 0 1 1 0 -32" />
+  </svg>
+  <!-- Arrow -->
+  <span class="arrow">↑</span>
+</button>
+<script>
+  const reveals = document.querySelectorAll(".reveal");
+  const revealOnScroll = () => {
+    reveals.forEach(el => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const revealPoint = 120;
 
+      if (elementTop < windowHeight - revealPoint) {
+        el.classList.add("active");
+      }
+    });
+  };
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+</script>
 <script src="cri/scrp.js"></script>
 <script src="cri/main.js"></script>
 </body>

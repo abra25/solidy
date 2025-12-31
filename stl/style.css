@@ -346,38 +346,33 @@ body.dark .social-icons a {
   transform: translateY(0);
 }
 
-/* ===== WHATSAPP FLOAT ===== */
-.whatsapp-float {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 55px;
-  height: 55px;
-  background: #25d366;
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-  z-index: 999;
-  transition: transform 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
+    padding: 10px 0;
   }
+
+  .site-footer {
+    padding: 10px 2% 10px;
+  } 
+
+  .footer-links li{
+    padding: 0;
+    margin-bottom: 3px;
+  }
+
+ 
 
   .footer-text {
     margin: auto;
+  }
+
+  .footer-col {
+    margin-bottom: 0;
+
   }
 
   .social-icons {

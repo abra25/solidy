@@ -30,3 +30,25 @@ slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
 slider.addEventListener('mouseleave', () => autoSlide = setInterval(autoScroll, 4500));
 slider.addEventListener('touchstart', () => clearInterval(autoSlide));
 slider.addEventListener('touchend', () => autoSlide = setInterval(autoScroll, 4500));
+
+// Preloader
+  (function () {
+    const preloader = document.getElementById("preloader");
+    const MIN_TIME = 3000; // minimum ms (fast network)
+    const startTime = performance.now();
+
+    window.addEventListener("load", () => {
+      const elapsed = performance.now() - startTime;
+      const remaining = Math.max(MIN_TIME - elapsed, 0);
+
+      setTimeout(() => {
+        preloader.classList.add("hide");
+
+        // remove from DOM kabisa (performance)
+        setTimeout(() => {
+          preloader.remove();
+        }, 700);
+      }, remaining);
+    });
+  })();
+

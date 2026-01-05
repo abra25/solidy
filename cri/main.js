@@ -67,3 +67,34 @@ const backToTop = document.getElementById("backToTop");
       behavior: "smooth"
     });
   });
+
+  // SUBPAGE LOADER (NOT FOR HOME)
+  const pageLoader = document.getElementById("pageLoader");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+
+      if (!href || href.startsWith("#") || href.startsWith("http")) return;
+
+      // ❌ USIFANYE KAZI KAMA NI HOME
+      const isHome =
+        href === "/" ||
+        href.endsWith("index.html") ||
+        href.includes("/index.html");
+
+      if (isHome) {
+        // achia browser ifanye kazi yake kawaida
+        return;
+      }
+
+      // ✅ SUBPAGE LINKS TU
+      e.preventDefault();
+      pageLoader.classList.add("show");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 2000); // 2 seconds
+    });
+  });
+

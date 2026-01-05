@@ -70,31 +70,43 @@ const backToTop = document.getElementById("backToTop");
 
   // SUBPAGE LOADER (NOT FOR HOME)
   const pageLoader = document.getElementById("pageLoader");
+  const preloader = document.getElementById("preloader");
 
+  // ==== FUNCTION TO SHOW SUBPAGE LOADER ====
+  function showSubpageLoader(duration = 2000) {
+    pageLoader.classList.add("show");
+    return new Promise(resolve => setTimeout(resolve, duration));
+  }
+
+  // ==== ON PAGE LOAD ====
+  window.addEventListener("DOMContentLoaded", () => {
+    // Check if NOT home page
+    const isHome = location.pathname.endsWith("index.html") || location.pathname === "/";
+    if (!isHome) {
+      showSubpageLoader(); // loader automatically on refresh / direct entry
+    }
+  });
+
+  // ==== NAVIGATION LINKS ====
   document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", e => {
+    link.addEventListener("click", async e => {
       const href = link.getAttribute("href");
-
       if (!href || href.startsWith("#") || href.startsWith("http")) return;
 
-      // ❌ USIFANYE KAZI KAMA NI HOME
-      const isHome =
+      // Detect HOME
+      const isHomeLink =
         href === "/" ||
         href.endsWith("index.html") ||
         href.includes("/index.html");
 
-      if (isHome) {
-        // achia browser ifanye kazi yake kawaida
+      if (isHomeLink) {
+        // Home click -> do NOT show subpage loader
         return;
       }
 
-      // ✅ SUBPAGE LINKS TU
       e.preventDefault();
-      pageLoader.classList.add("show");
-
-      setTimeout(() => {
-        window.location.href = href;
-      }, 2500); // 2 seconds
+      await showSubpageLoader();
+      window.location.href = href;
     });
   });
 

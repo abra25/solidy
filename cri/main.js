@@ -68,45 +68,41 @@ const backToTop = document.getElementById("backToTop");
     });
   });
 
-  // SUBPAGE LOADER (NOT FOR HOME)
   const pageLoader = document.getElementById("pageLoader");
-  const preloader = document.getElementById("preloader");
 
-  // ==== FUNCTION TO SHOW SUBPAGE LOADER ====
-  function showSubpageLoader(duration = 2000) {
+  // FUNCTION TO SHOW LOADER FOR GIVEN DURATION
+  function showLoader(duration = 2000) {
     pageLoader.classList.add("show");
     return new Promise(resolve => setTimeout(resolve, duration));
   }
 
-  // ==== ON PAGE LOAD ====
-  window.addEventListener("DOMContentLoaded", () => {
-    // Check if NOT home page
+  // ==== AUTOMATIC LOADER ON PAGE LOAD (NOT HOME) ====
+  window.addEventListener("DOMContentLoaded", async () => {
     const isHome = location.pathname.endsWith("index.html") || location.pathname === "/";
     if (!isHome) {
-      showSubpageLoader(); // loader automatically on refresh / direct entry
+      await showLoader(2000); // show loader for 2 seconds
+      pageLoader.classList.remove("show"); // hide after 2s
     }
   });
 
-  // ==== NAVIGATION LINKS ====
+  // ==== CLICK ON SUBPAGE LINKS ====
   document.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", async e => {
       const href = link.getAttribute("href");
+
       if (!href || href.startsWith("#") || href.startsWith("http")) return;
 
-      // Detect HOME
+      // DETECT HOME LINKS
       const isHomeLink =
         href === "/" ||
         href.endsWith("index.html") ||
         href.includes("/index.html");
 
-      if (isHomeLink) {
-        // Home click -> do NOT show subpage loader
-        return;
-      }
+      if (isHomeLink) return; // home click → no subpage loader
 
+      // SUBPAGE LOADER
       e.preventDefault();
-      await showSubpageLoader();
-      window.location.href = href;
+      await showLoader(2000); // show loader 2s
+      window.location.href = href; // navigate after loader
     });
   });
-

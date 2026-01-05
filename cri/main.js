@@ -94,7 +94,7 @@ const backToTop = document.getElementById("backToTop");
 
       setTimeout(() => {
         window.location.href = href;
-      }, 2000); // 2 seconds
+      }, 2500); // 2 seconds
     });
   });
 
